@@ -1,0 +1,28 @@
+{
+    "name": "send-deployment--data-action",
+    "version": "0.1.0",
+    "description": "A GitHub Action to report deployment info to cicd dashboard backend",
+    "main": "index.js",
+    "scripts": {
+      "build": "ncc build src/index.js -o dist",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/invitation-homes/send-deployment-data-action.git"
+    },
+    "author": "Robert McQuarrie",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/invitation-homes/send-deployment-data-action/issues"
+    },
+    "homepage": "https://github.com/invitation-homes/send-deployment-data-action#readme",
+    "dependencies": {
+      "@actions/core": "^1.2.6",
+      "@actions/github": "^4.0.0",
+      "@vercel/ncc": "^0.28.3",
+      "axios": "^0.21.2",
+      "xml2js": "^0.4.23",
+      "xmldom": "^0.5.0"
+    }
+  }
