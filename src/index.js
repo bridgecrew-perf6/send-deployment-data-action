@@ -27,7 +27,7 @@ async function main() {
     
     if (commitSHA != ""){
         console.log("sending deployment details to event bridge.");
-        await postDeploymentDetails(app_env,app_name,is_successful,release_tag,commitSHA,context);
+        await postDeploymentDetails(app_env, app_name, is_successful, app_version, commitSHA, context);
         is_successful = true;
         console.log("action executed successfully.");
     }
@@ -41,7 +41,7 @@ async function main() {
 
 main();
 
-async function postDeploymentDetails(cloudhub_env, cloudhub_app_name, is_successful, versionId, commitSHA, context){
+async function postDeploymentDetails(app_env, app_name, is_successful, app_version, commitSHA, context){
 	try {		
 		const response = await axios({
             method: "post",
@@ -50,10 +50,10 @@ async function postDeploymentDetails(cloudhub_env, cloudhub_app_name, is_success
                 'Authorization': `Bearer ${process.env.CI_CD_API_TOKEN}`
             },
             data: { 
-                "version": versionId, 
+                "version": app_version, 
                 "commit": commitSHA, 
                 "repository": context.repo.repo, 
-                "environment": cloudhub_env, 
+                "environment": app_env, 
                 "isSuccessful": is_successful, 
                 "timestamp": new Date().toISOString()
             }

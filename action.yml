@@ -6,6 +6,9 @@ inputs:
   release-tag:
     description: 'release number to be build'
     required: true
+  version:
+    description: 'application version'
+    required: true
   environment:
     description: 'application environment'
     required: true
